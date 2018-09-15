@@ -82,7 +82,7 @@ class SourceReader:
         wc = dict()
         with open(os.path.join(os.path.dirname(__file__), 'data', 'litc-win.txt'), encoding='windows-1251') as f:
             for line in f:
-                wc[line[8:]] = int(line[:7]) / words_all
+                wc[line[8:].strip()] = int(line[:7]) / words_all
         return wc
 
     def read_freq_wikipedia(self) -> Dict[str, float]:

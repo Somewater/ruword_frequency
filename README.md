@@ -9,11 +9,11 @@ It based on huge collection of russian documents and prepared word frequency sou
 - [Частотный словарь Марка фон Хагена](http://speakrus.ru/dict/index.htm) see [description](http://speakrus.ru/dict/hagen_freq_desc.txt)
 
 Word's ipm from all enumerated sources was extracted and mean values used. 
-Full index contains more them 5 billions word forms including mistakes from raw data sources (unfortunately).
+Full index contains more them 7 billions word forms including mistakes from raw data sources (unfortunately).
 
 # Requirements:
 - Python 3
-- Word index occupies near 150 Mb on hard disk and equal quantity of memory
+- Word index occupies near 50 Mb on hard disk and will be downloaded first time you invoke `frequency.load()` method
 
 # Installation
 ```

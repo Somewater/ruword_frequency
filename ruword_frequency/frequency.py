@@ -1,22 +1,18 @@
 import marisa_trie
 from ruword_frequency.source_reader import SourceReader
-
+import os
 
 class Frequency(object):
     def __init__(self):
-        self.word_count = None
         self._max_ipm = None
-        self.filepath_tree = 'data/frequency_tree_lemms.bin'
         self.tree = None
 
     def load(self):
+        filepath_tree = os.path.join(os.path.dirname(__file__), 'data', 'frequency_tree.bin')
+        if not os.path.exists(filepath_tree):
+            SourceReader().download_data_file('frequency_tree.bin')
         self.tree = marisa_trie.RecordTrie('<f')
-        self.tree.load(self.filepath_tree)
-
-    def save(self):
-        if self.tree is None:
-            raise RuntimeError("Dictionaries not loaded yet")
-        self.tree.save(self.filepath_tree)
+        self.tree.load(filepath_tree)
 
     def ipm(self, word):
         if self.tree is None:

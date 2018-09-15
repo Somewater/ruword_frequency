@@ -70,7 +70,7 @@ class SourceReader:
         with open(os.path.join('data', 'freqrnc2011.csv')) as f:
             for line in f:
                 if header_readed:
-                    r = line.split('\t')
+                    r = line.strip().split('\t')
                     wc[r[0]] = float(r[2])
                 else:
                     header_readed = True
@@ -82,7 +82,6 @@ class SourceReader:
         wc = dict()
         with open(os.path.join('data', 'litc-win.txt'), encoding='windows-1251') as f:
             for line in f:
-                r = line.split(' | ')
                 wc[line[8:]] = int(line[:7]) / words_all
         return wc
 

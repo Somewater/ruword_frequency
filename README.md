@@ -22,5 +22,42 @@ Full index contains more them 7 billions word forms including mistakes from raw 
 
 # Usage
 ```
-# TODO
+from ruword_frequency import Frequency
+freq = Frequency()
+freq.load()
+
+freq.ipm('привет')
+>>> 53.51823806762695
+
+freq.ipm('неттакогослова')
+>>> 0.0
+
+# get max ipm value. For weights normalization, for example
+freq.max_ipm()
+>>> 42329.2890625
+
+# get list of most used words  with ipm more then 1000
+for w in freq.iterate_words(1000):
+    print(w)
+```
+
+For other useful methods see [marisa-trie](https://marisa-trie.readthedocs.io/en/latest/tutorial.html) documentations.
+Tree index available as `freq.tree`
+
+# Rebuild tree by yourself
+```
+from ruword_frequency.source_reader import SourceReader
+reader = SourceReader()
+
+# increase socket timeout, sometimes helpful for huge file downloading:
+import socket
+socket.setdefaulttimeout(60)
+
+reader.download_all_sources()
+tree = reader.build_tree_from_dictionaries()
+reader.save_tree(tree)
+
+# use it 
+freq = Frequency()
+freq.ipm('привет')
 ```

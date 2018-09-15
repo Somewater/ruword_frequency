@@ -17,7 +17,7 @@ Full index contains more them 7 billions word forms including mistakes from raw 
 
 # Installation
 ```
-# TODO
+pip install ruword_frequency
 ```
 
 # Usage

@@ -36,8 +36,8 @@ freq.ipm('неттакогослова')
 freq.max_ipm()
 >>> 42329.2890625
 
-# get list of most used words  with ipm more then 1000
-for w in freq.iterate_words(1000):
+# get list of most used words  with ipm more then 10000
+for w in freq.iterate_words(10000):
     print(w)
 ```
 

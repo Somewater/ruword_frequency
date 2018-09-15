@@ -57,7 +57,7 @@ class SourceReader:
     # http://speakrus.ru/dict/index.htm
     def read_freq_hagen(self) -> Dict[str, float]:
         wc = dict()
-        with open(os.path.join('data', 'hagen_freq_alph.txt'), encoding='windows-1251') as f:
+        with open(os.path.join(os.path.dirname(__file__), 'data', 'hagen_freq_alph.txt'), encoding='windows-1251') as f:
             for line in f:
                 r = line.split(' | ')
                 wc[r[1]] = float(r[3])
@@ -67,7 +67,7 @@ class SourceReader:
     def read_freq_2011(self) -> Dict[str, float]:
         wc = dict()
         header_readed = False
-        with open(os.path.join('data', 'freqrnc2011.csv')) as f:
+        with open(os.path.join(os.path.dirname(__file__), 'data', 'freqrnc2011.csv')) as f:
             for line in f:
                 if header_readed:
                     r = line.strip().split('\t')
@@ -80,19 +80,19 @@ class SourceReader:
     def read_freq_litc_win(self) -> Dict[str, float]:
         words_all = 2.390000
         wc = dict()
-        with open(os.path.join('data', 'litc-win.txt'), encoding='windows-1251') as f:
+        with open(os.path.join(os.path.dirname(__file__), 'data', 'litc-win.txt'), encoding='windows-1251') as f:
             for line in f:
                 wc[line[8:]] = int(line[:7]) / words_all
         return wc
 
     def read_freq_wikipedia(self) -> Dict[str, float]:
-        return self._read_word_count(os.path.join('data', 'wikipedia_freq.txt'), 17118.429422, 100)
+        return self._read_word_count(os.path.join(os.path.dirname(__file__), 'data', 'wikipedia_freq.txt'), 17118.429422, 100)
 
     def read_freq_flibusta(self) -> Dict[str, float]:
-        return self._read_word_count(os.path.join('data', 'word_frequency_flibusta_0.txt'))
+        return self._read_word_count(os.path.join(os.path.dirname(__file__), 'data', 'word_frequency_flibusta_0.txt'))
 
     def read_freq_puhlyi(self) -> Dict[str, float]:
-        return self._read_word_count(os.path.join('data', 'word_frequency_by_puhlyi.txt'))
+        return self._read_word_count(os.path.join(os.path.dirname(__file__), 'data', 'word_frequency_by_puhlyi.txt'))
 
     def _read_word_count(self, filepath: str, words_all: float = None, min_count: int = 5):
         if words_all is None:

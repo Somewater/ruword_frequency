@@ -1,0 +1,7 @@
+data/word_frequency_by_puhlyi.txt filter=lfs diff=lfs merge=lfs -text
+data/word_frequency_flibusta_0.txt filter=lfs diff=lfs merge=lfs -text
+data/freqrnc2011.csv filter=lfs diff=lfs merge=lfs -text
+data/frequency_tree.bin filter=lfs diff=lfs merge=lfs -text
+data/hagen_freq_alph.txt filter=lfs diff=lfs merge=lfs -text
+data/litc-win.txt filter=lfs diff=lfs merge=lfs -text
+data/wikipedia_freq.txt filter=lfs diff=lfs merge=lfs -text
